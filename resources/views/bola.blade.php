@@ -3,45 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <title>Bola</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Tabung</title>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Anton');
+    </style>
   </head>
   <body>
-      <nav class="navbar navbar-light bg-light">
-        <a href="/index">Back</a>
-      </nav>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-6">
-            <form action="bola" method="get" name="bangun">
-            @csrf
-              <div class="card mt-5">
-                <div class="card-body">
-                  <div class="form-row" >
-                    <div class="form-group col-md-6">
-                      <label for="my-input">Jari-Jari</label>
-                      <input class="form-control" type="number" name="jari" required>
+    <nav class="navbar navbar-expand-sm bg-dark">
+      <a href="/index">Back</a>      
+    </nav>
+    <form class="container mt-5" method="GET" action="/bangunbola">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header font-weight-bold">Hitung Bola</div>
+            <div class="card-body p-5">
+              <div class="form-group row">
+                <label for="jari" class="col-12 p-0">jari-jari</label>
+                <input type="number" name="jari" id="" class="form-control col-12" >
+              </div>              
+              <div class="form-group row">
+                <input type="submit" value="submit" name="submit" id="submit" class="btn btn-info">
+              </div>
+                @if(session('hasil'))
+                    <div class="alert alert-info">
+                        {{session('hasil')}}
                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-success float-right">Hasil</button>
-                </div>
-              </div>
-            </form>
-            <div class="row justify-content-center my-2">
-              <div class="col-md-6">
-                @if(session('info'))
-                  <div class="alert alert-info">
-                    {{ session('info')}}
-                  </div>
                 @endif
-              </div>
             </div>
           </div>
         </div>
       </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>    
   </body>
 </html>

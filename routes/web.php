@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Calculator;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::get('/tabung', function () {
     return view('tabung');
 });
+
 Route::get('/bola', function () {
     return view('bola');
 });
+
 Route::get('/kerucut', function () {
     return view('kerucut');
 });
 
-Route::get('/tabung', 'RumusController@tabung');
-Route::get('/bola', 'RumusController@bola');
-Route::get('/kerucut', 'RumusController@kerucut');
+Route::get('/banguntabung',[Calculator::class, 'tabung']);
 
+Route::get('/bangunbola',[Calculator::class, 'bola']);
+
+Route::get('/bangunkerucut',[Calculator::class, 'kerucut']);
